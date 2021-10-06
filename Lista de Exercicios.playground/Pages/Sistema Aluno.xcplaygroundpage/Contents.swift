@@ -104,25 +104,25 @@ class SistemaAluno {
     
     func getApproved() -> [Aluno] {
         let aprovados = alunos.filter({ $0.isApproved() == true })
-        aprovados.map { print("Aluno \($0.nome) foi aprovado") }
+        aprovados.forEach { print("Aluno \($0.nome) foi aprovado") }
         return aprovados
     }
     
     func getDisapproved() -> [Aluno] {
         let reprovados = alunos.filter { $0.isApproved() == false }
-        reprovados.map { print("Aluno \($0.nome) não foi aprovado") }
+        reprovados.forEach { print("Aluno \($0.nome) não foi aprovado") }
         return reprovados
     }
     
     func getValidDocument() -> [Aluno] {
         let alunosDocumentosValidos = alunos.filter { validarCPF($0.cpf) == true }
-        alunosDocumentosValidos.map { print("Aluno \($0.nome) CPF valido") }
+        alunosDocumentosValidos.forEach { print("Aluno \($0.nome) CPF valido") }
         return alunosDocumentosValidos
     }
     
     func getUnderage () -> [Aluno] {
         let maiorIdade = alunos.filter { $0.maiorIdade() == false }
-        maiorIdade.map{ print("Aluno \($0.nome) é menor de idade") }
+        maiorIdade.forEach { print("Aluno \($0.nome) é menor de idade") }
         return maiorIdade
     }
 }
